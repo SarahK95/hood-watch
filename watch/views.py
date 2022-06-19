@@ -42,7 +42,12 @@ def health(request):
     healthdepts =Health.objects.filter(neighbourhood=profile.neighbourhood)  
     return render(request, 'health,html', {'healthdepts': healthdepts})
     
-    
+@login_required(login_url='/accounts/login/')
+def businesses(request):
+    current_user=request.user
+    profile=Profile.objects.get(username=current_user)
+    businesses = Business.objects.filter(neighbourhood=profile.neighbourhood)
+    return render(request,'business.html',{"businesses":businesses})    
     
     
     
@@ -53,10 +58,3 @@ def health(request):
 
 
 
-# @login_required(login_url='/accounts/login/')
-# def health(request):
-#     current_user=request.user
-#     profile=Profile.objects.get(username=current_user)
-#     healthservices = Health.objects.filter(neighbourhood=profile.neighbourhood)
-
-#     return render(request,'health.html',{"healthservices":healthservices})
