@@ -62,10 +62,10 @@ class Business(models.Model):
     def delete_business(cls, business_name):
         cls.objects.filter(business_name=business_name).delete()
     
-    # @classmethod
-    # def find_business(cls, search_term):
-    #     business = cls.cls.objects.filter(business_name__icontains = search_term)
-    #     return business
+    @classmethod
+    def find_business(cls, search_term):
+        business = cls.cls.objects.filter(business_name__icontains = search_term)
+        return business
     
     
     # def update_business(self, business_name):
