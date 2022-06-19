@@ -55,8 +55,8 @@ class Business(models.Model):
     def __str__(self):
         return self.business_name
     
-    # def create_business(self):
-    #     self.save
+    def create_business(self):
+        self.save
     
     # @classmethod
     # def delete_business(cls, business_name):
