@@ -68,9 +68,9 @@ class Business(models.Model):
         return business
     
     
-    # def update_business(self, business_name):
-    #     self.business_name = business_name
-    #     self.save()
+    def update_business(self, business_name):
+        self.business_name = business_name
+        self.save()
     
  
     
