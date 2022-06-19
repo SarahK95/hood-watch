@@ -56,7 +56,7 @@ class Business(models.Model):
         return self.business_name
     
     def create_business(self):
-        self.save
+        self.save()
     
     @classmethod
     def delete_business(cls, business_name):
@@ -71,6 +71,32 @@ class Business(models.Model):
     def update_business(self, business_name):
         self.business_name = business_name
         self.save()
+        
+class Healthdepts(models.Model):
+    healthdepts = models.CharField(max_length=100)
     
- 
+    def __str__(self):
+        return self.healthdepts
     
+    def save_healthdepts(self):
+        self.save()   
+    
+    
+    @classmethod
+    def delete_healthdepts(cls, healthdepts):
+        cls.objects.filter(healthdepts=healthdepts).delete()
+        
+class Health(models.Model):
+    logo = models.ImageField(upload_to='logos/')
+    hoood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    health_name =models.CharField(max_length=100)
+    emails = models.EmailField()
+    contacts = models.IntegerField()
+    add =models.CharField(max_length=100)
+    healthdepts = models.ManyToManyField(Healthdepts)
+
+    def __str__(self):
+        return self.health_name        
+        
+        
+
