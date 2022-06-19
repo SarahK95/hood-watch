@@ -58,9 +58,9 @@ class Business(models.Model):
     def create_business(self):
         self.save
     
-    # @classmethod
-    # def delete_business(cls, business_name):
-    #     cls.objects.filter(business_name=business_name).delete()
+    @classmethod
+    def delete_business(cls, business_name):
+        cls.objects.filter(business_name=business_name).delete()
     
     # @classmethod
     # def find_business(cls, search_term):
