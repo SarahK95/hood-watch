@@ -109,3 +109,20 @@ class Police(models.Model):
 
     def __str__(self):
         return self.police_name
+
+class Post(models.Model):
+    title = models.CharField(max_length=150)
+    image = models.ImageField(upload_to='post/')
+    post = models.TextField()
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    hood= models.ForeignKey(Hood,on_delete=models.CASCADE)
+    post_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='image/')
+
+    def __str__(self):
+        return self.title
+
+    @classmethod
+    def search_post(cls,search_term):
+        posts = cls.objects.filter(title__icontains = search_term)
+        return posts
