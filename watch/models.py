@@ -38,6 +38,7 @@ class Profile(models.Model):
     bio = models.TextField(blank= True)
     email = models.EmailField()
     neighbourhood = models.ForeignKey(Hood, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='image/')
     
     def __str__(self):
         return self.name
@@ -100,13 +101,12 @@ class Health(models.Model):
         
 class Post(models.Model):
     title = models.CharField(max_length=150)
-    image = models.ImageField(upload_to='post/')
+    image = models.ImageField(upload_to='image/')
     post = models.TextField()
     username = models.ForeignKey(User,on_delete=models.CASCADE)
     hood= models.ForeignKey(Hood,on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='image/')
-
+ 
     def __str__(self):
         return self.title
 
