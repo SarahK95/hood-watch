@@ -98,18 +98,6 @@ class Health(models.Model):
     def __str__(self):
         return self.health_name        
         
-        
-
-class Police(models.Model):
-    police_hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
-    police_name =models.CharField(max_length=100)
-    pemail = models.EmailField()
-    pcontact = models.IntegerField()
-    paddress =models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.police_name
-
 class Post(models.Model):
     title = models.CharField(max_length=150)
     image = models.ImageField(upload_to='post/')
@@ -126,3 +114,19 @@ class Post(models.Model):
     def search_post(cls,search_term):
         posts = cls.objects.filter(title__icontains = search_term)
         return posts
+    
+class Comment(models.Model):
+    comment = models.CharField(max_length=300)
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)            
+
+class Police(models.Model):
+    police_hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    police_name =models.CharField(max_length=100)
+    pemail = models.EmailField()
+    pcontact = models.IntegerField()
+    paddress =models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.police_name
+
