@@ -1,4 +1,6 @@
 from distutils import log
+from multiprocessing.dummy import current_process
+import profile
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -26,6 +28,12 @@ def post(request):
     posts = Post.objects.filter(neighbourhood =profile.neighbourhood)
     return render(request, 'post.html', {'posts':posts})
     
+@login_required(login_url='/accounts/login')
+def police(request):
+    current_user = request.user
+    profile = Profile.objects.get(username= current_user)
+    polices = Police.objects.filter(neighbourhood =profile.neighbourhood) 
+    return render (request, 'police.html', {'polices':polices})   
     
     
     
@@ -34,10 +42,7 @@ def post(request):
     
 
     
-#     @login_required(login_url='/accounts/login/')
-# def blog(request):
-#     current_user=request.user
-#     profile=Profile.objects.get(username=current_user)
-#     blogposts = BlogPost.objects.filter(neighbourhood=profile.neighbourhood)
 
-#     return render(request,'blog.html',{"blogposts":blogposts})
+
+
+
