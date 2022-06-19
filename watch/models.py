@@ -88,7 +88,7 @@ class Healthdepts(models.Model):
         
 class Health(models.Model):
     logos = models.ImageField(upload_to='logos/')
-    hoood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    health_hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
     health_name =models.CharField(max_length=100)
     emails = models.EmailField()
     contacts = models.IntegerField()
@@ -100,3 +100,12 @@ class Health(models.Model):
         
         
 
+class Police(models.Model):
+    police_hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    police_name =models.CharField(max_length=100)
+    pemail = models.EmailField()
+    pcontact = models.IntegerField()
+    paddress =models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.police_name
