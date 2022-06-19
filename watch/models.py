@@ -22,7 +22,7 @@ class Hood (models.Model):
     
     @classmethod
     def find_hood(cls, search_term):
-        hoods = cls.cls.objects.filter(neighbourhood_name__icontains = search_term)
+        hoods = cls.cls.objects.filter(hood_name__icontains = search_term)
         return hoods
     
     
@@ -43,11 +43,34 @@ class Profile(models.Model):
         return self.name
     
     
-# class Business(models.Model):
-        
-    
+class Business(models.Model):
+    description = models.TextField(blank= True)
+    hoody = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
+    business_name =models.CharField(max_length=100)
+    business_email = models.EmailField()
+    contact = models.IntegerField()
+    logo = models.ImageField(upload_to='logos/')
 
-            
+    def __str__(self):
+        return self.business_name
+    
+    # def create_business(self):
+    #     self.save
+    
+    # @classmethod
+    # def delete_business(cls, business_name):
+    #     cls.objects.filter(business_name=business_name).delete()
+    
+    # @classmethod
+    # def find_business(cls, search_term):
+    #     business = cls.cls.objects.filter(business_name__icontains = search_term)
+    #     return business
+    
+    
+    # def update_business(self, business_name):
+    #     self.business_name = business_name
+    #     self.save()
     
  
     
