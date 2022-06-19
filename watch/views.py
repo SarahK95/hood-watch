@@ -51,6 +51,12 @@ def businesses(request):
     return render(request,'business.html',{"businesses":businesses})  
 
 @login_required(login_url='/accounts/login/')
+def my_prof(request):
+    current_user=request.user
+    profile =Profile.objects.get(username=current_user)
+    return render(request,'profile.html',{"profile":profile})
+
+@login_required(login_url='/accounts/login/')
 def view_post(request,id):
     current_user = request.user
     try:
