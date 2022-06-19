@@ -87,12 +87,12 @@ class Healthdepts(models.Model):
         cls.objects.filter(healthdepts=healthdepts).delete()
         
 class Health(models.Model):
-    logo = models.ImageField(upload_to='logos/')
+    logos = models.ImageField(upload_to='logos/')
     hoood = models.ForeignKey(Hood,on_delete=models.CASCADE)
     health_name =models.CharField(max_length=100)
     emails = models.EmailField()
     contacts = models.IntegerField()
-    add =models.CharField(max_length=100)
+    addy =models.CharField(max_length=100)
     healthdepts = models.ManyToManyField(Healthdepts)
 
     def __str__(self):
