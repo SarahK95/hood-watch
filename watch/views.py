@@ -33,7 +33,14 @@ def police(request):
     current_user = request.user
     profile = Profile.objects.get(username= current_user)
     polices = Police.objects.filter(neighbourhood =profile.neighbourhood) 
-    return render (request, 'police.html', {'polices':polices})   
+    return render (request, 'police.html', {'polices':polices}) 
+
+@login_required(login_url='/accounts/login')
+def health(request):
+    current_user = request.user
+    profile = Profile.objects.get(username = current_user)
+    healthdepts =Health.objects.filter(neighbourhood=profile.neighbourhood)  
+    return render(request, 'health,html', {'healthdepts': healthdepts})
     
     
     
@@ -46,3 +53,10 @@ def police(request):
 
 
 
+# @login_required(login_url='/accounts/login/')
+# def health(request):
+#     current_user=request.user
+#     profile=Profile.objects.get(username=current_user)
+#     healthservices = Health.objects.filter(neighbourhood=profile.neighbourhood)
+
+#     return render(request,'health.html',{"healthservices":healthservices})
