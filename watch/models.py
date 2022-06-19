@@ -26,7 +26,9 @@ class Hood (models.Model):
     def create_hood(self):
         self.save
     
-    # def 
+    @classmethod
+    def delete_hood(cls, hood_name):
+        cls.objects.filter(hood_name=hood_name).delete()
             
     
  
