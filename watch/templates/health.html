@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 top-div" style="margin-top:40px;">
+      <h1>HEALTH</h1>
+
+    </div>
+  </div>
+
+<div class="row">
+
+  {% for health in healthdepts %}
+  <div class="col-md-6">
+  <div class="card" style="width: 25rem;margin-top:10px;" >
+  <div class="card-body">
+      <h3 class="card-title" data-toggle="modal" data-target="#{{health.id}}">{{health.health_name}}</h3>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="{{health.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header text-center">
+        <h3 class="text-center">{{health.health_name}}</h3>
+      </div>
+      <div class="modal-body">
+        <img class="card-img-top" src="{{health.logo.url}}" height=200 width=100 >
+
+        <h4 class="text-center">Contacts</h4>
+        <p><span class="bold">Tel:</span> {{health.contacts}}</p>
+        <p><span class="bold">Address:</span> {{health.addy}}</p>
+        <p><span class="bold">Email:</span> {{health.emails}}</p>
+      </div>
+      <div class="modal-footer" style="display:block;">
+        {% for healthservice in healthdepts.all %}
+            <button class="btn btn-primary">{{ healthservice }}</button>
+        {% endfor%}
+
+    </div>
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+</div>
+
+<style>
+.bold{
+  font-weight: bold;
+}
+h3{
+  text-align: center;
+}
+h1{
+  color:white;
+  text-align:center;
+}
+body{
+    background:url('https://cdn.pixabay.com/photo/2016/11/18/19/27/ground-1836537_960_720.jpg')
+}
+footer{
+    
+    margin-top: 450px;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+</style>
+
+{% endblock %}

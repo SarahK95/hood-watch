@@ -94,7 +94,7 @@ class Health(models.Model):
     emails = models.EmailField()
     contacts = models.IntegerField()
     addy =models.CharField(max_length=100)
-    healthdepts = models.ManyToManyField(Healthdepts)
+    # healthdepts = models.ManyToManyField(healthdepts)
 
     def __str__(self):
         return self.health_name        

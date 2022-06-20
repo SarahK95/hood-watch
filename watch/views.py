@@ -25,12 +25,12 @@ def home(request):
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
-    if 'blog' in request.GET and request.GET["blog"]:
-        search_term = request.GET.get("blog")
-        searched_posts = Post.search_blogpost(search_term)
+    if 'post' in request.GET and request.GET["post"]:
+        search_term = request.GET.get("post")
+        searched_posts = Post.search_post(search_term)
         message=f"{search_term}"
         print(searched_posts)
-        return render(request,'search.html',{"message":message,"blogs":searched_posts})
+        return render(request,'search.html',{"message":message,"posts":searched_posts})
 
     else:
         message="You haven't searched for any term"
@@ -47,21 +47,21 @@ def post(request):
 def police(request):
     current_user = request.user
     profile = Profile.objects.get(username= current_user)
-    polices = Police.objects.filter(hood =profile.neighbourhood) 
+    polices = Police.objects.filter(police_hood =profile.neighbourhood) 
     return render (request, 'police.html', {'polices':polices}) 
 
 @login_required(login_url='/accounts/login')
 def health(request):
     current_user = request.user
     profile = Profile.objects.get(username = current_user)
-    healthdepts =Health.objects.filter(hood=profile.neighbourhood)  
-    return render(request, 'health,html', {'healthdepts': healthdepts})
+    healthdepts =Health.objects.filter(health_hood =profile.neighbourhood)  
+    return render(request, 'health.html', {'healthdepts': healthdepts})
     
 @login_required(login_url='/accounts/login/')
 def businesses(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    businesses = Business.objects.filter(hood=profile.neighbourhood)
+    businesses = Business.objects.filter(hoody=profile.neighbourhood)
     return render(request,'business.html',{"businesses":businesses})  
 
 @login_required(login_url='/accounts/login/')

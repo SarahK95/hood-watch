@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 top-div" style="margin-top:40px;">
+        <h1 style="color:white;text-align:center;">POLICE</h1>
+    </div>
+  </div>
+
+
+<div class="row">   
+    {% for police in polices %}
+    <div class="col-md-6">
+        <div class="card" style="width: 20rem;margin-top:10px;" >
+           <div class="card-body">
+             <button type="button" class="btn  btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{police.id}}">{{police.police_name}}</button>
+                    
+          </div>            
+        </div>
+    </div>
+   <!--  modal -->
+   <div class="modal fade"  id="exampleModal{{police.id}}" tabindex="-1"  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">{{police.police_name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </div>
+
+                    <div class="modal-body">
+                        
+                        <p><span style="font-weight:bold;">Hood:</span> {{police.police_hood|safe}}</p>
+
+                        <h4 class="text-center">Details</h4>
+                        <br>
+                        <p><span class="bold">Address:</span> {{police.paddress}}</p>
+                        <br>
+                        <p><span class="bold">Tel:</span> {{police.pcontact}}</p>
+                        <br>
+                        <p><span class="bold">Email:</span> {{police.pemail}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+
+           
+        </div>
+    </div>
+</div>
+
+
+
+ {%endfor%}
+</div>
+</div>
+</body>
+<style>
+    .card .btn{
+        font-size: 20px;
+    }
+    body{
+        background:url('https://cdn.pixabay.com/photo/2016/11/18/19/27/ground-1836537_960_720.jpg')
+    }
+    footer{
+        margin-top:350px;
+    }
+    h1{
+        font-size:50px;
+        font-weight:bold;
+    }
+</style>
+{%endblock%}
