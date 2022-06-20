@@ -18,8 +18,18 @@
   <p class="card-text" style="font-size:20px;font-weight:bold;">{{profile.bio |safe}}</p>
   <p class="card-text" style="font-size:18px;color:white;font-weight:bold;">Email: {{profile.email}}</p>
 
+  <a class="nav-link" href="{% url 'update-profile' %}">Edit Profile</a>
+
 </div>
 
 </div>
+
+<style>
+  footer{
+   margin-top: 300px;
+  }
+</style>
 
 {% endblock %}
+
+

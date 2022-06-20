@@ -54,8 +54,8 @@ def police(request):
 def health(request):
     current_user = request.user
     profile = Profile.objects.get(username = current_user)
-    healthdepts =Health.objects.filter(health_hood =profile.neighbourhood)  
-    return render(request, 'health.html', {'healthdepts': healthdepts})
+    healths =Health.objects.filter(health_hood =profile.neighbourhood)  
+    return render(request, 'health.html', {'healths': healths})
     
 @login_required(login_url='/accounts/login/')
 def businesses(request):
@@ -127,7 +127,7 @@ def update_profile(request):
         form = ProfileForm(instance=profile)
     else:
         form = ProfileForm()
-    return render(request,'profile.html',{"form":form})
+    return render(request,'update_profile.html',{"form":form})
 
 @login_required(login_url='/accounts/login/')
 def new_biz(request):
