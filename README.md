@@ -20,7 +20,6 @@ A web app that keeps you on the loop with the happenings in your neighbourhood.
 | ------------------- | ----------------------------- | ----------------------------- |
 | User visits the app and gets directed to the login page  | User logs in | Directed to the home page | 
 If user has no account, they click on `sign up` | User signs up | User is redirected to the profile set up page |
-
 | Homepage loads | Click ` Posts` | User's redirected to a page where they can see uploaded posts and a button to post too | 
 | Homepage loads | Click `Health ` | User's redirected to a page where they can see health services | 
 | Homepage loads | Click `Businesses` | User's redirected to a page where they can see uploaded businesses |
