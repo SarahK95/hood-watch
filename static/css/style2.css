@@ -1,0 +1,6 @@
+body{
+    background-color: #f4f7f6;
+    /* background-image: url(../img/background.jpg); */
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('https://cdn.pixabay.com/photo/2018/10/28/13/26/nairobi-3778781_960_720.jpg') fixed;
+    background-position: 50% 50%;
+  }
