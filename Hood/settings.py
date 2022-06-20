@@ -78,6 +78,11 @@ WSGI_APPLICATION = 'Hood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hood',
+        'USER': 'mummy',
+        'PASSWORD': 'hood123',
+        'HOST': 'localhost',
+        'PORT': '',
         
     }
 }
