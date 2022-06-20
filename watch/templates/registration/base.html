@@ -1,4 +1,4 @@
-{% load bootstrap4 %}
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -12,10 +12,12 @@
     {% endif %}
 
     {% block styles %}
-    {% bootstrap_css %}
-    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> -->
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     {% endblock %}
+  
 
     <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -30,11 +32,16 @@
     {% block scripts %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
 
-    {% bootstrap_javascript %}
+  
     {% endblock %}
-
-
-
   </body>
+  <footer class="page-footer font-small special-color-dark pt-4">
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="https://github.com/SarahK95"> Sarah | Kamunya</a>
+      </div>
+</footer>
 </html>

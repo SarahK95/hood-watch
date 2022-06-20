@@ -29,7 +29,7 @@
           <form  action="/accounts/register/" method="post">
             {% csrf_token %}
 
-            {% bootstrap_form form %}
+            {% bootstrap_form form field_class="text-danger" %}
 
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
@@ -42,7 +42,7 @@
         </div>
 
       </div>
-      <small>Already have an account? <a href="/accounts/login">Login Here!</a></small>
+      <p>Already have an account? <a href="/accounts/login">Login Here!</a></p>
 
 
     </div>

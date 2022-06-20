@@ -14,7 +14,7 @@ from .forms import ProfileForm,PostForm,BusinessForm,CommentForm
 # Create your views here.
 def home(request):
     try:
-        if not request.user.is_autheniicated:
+        if not request.user.is_authenticated:
             return redirect('/accounts/login/')
         current_user = request.user
         profile = Profile.objects.get(username=current_user)
