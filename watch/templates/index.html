@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+<style>
+    .dark{
+      filter: brightness(85%);
+    }
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .col {
+      position: relative;
+      border: 1px solid #333;
+      margin: 2%;
+      overflow: hidden;
+      width: 540px;
+    }
+    .col img {
+      max-width: 100%;
+    
+      -moz-transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    .col:hover img {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+      filter: brightness(50%);
+    
+    }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    
+    }
+    
+    </style>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'post'%}">
+                    <img class="dark" src="{% static ''%}" style="width:34rem;height:28rem;">
+                    <div class="centered">
+                        <h4 style="color:white; font-size:30px;">POSTS</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'businesses'%}">
+                    <img class="dark" src="{% static ''%}" style="width:34rem;height:28rem;">
+                    <div class="centered">
+                        <h4 style="color:white; font-size:30px;">BUSINESS</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="{% url 'police'%}">
+                    <img class="dark" src="{% static ''%}" style="width:34rem;height:28rem;">
+                    <div class="centered">
+                        <h4 style="color:white; font-size:30px;">POLICE</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="{% url 'health'%}">
+                    <img class="dark" src="{% static ''%}" style="width:34rem;height:28rem;">
+                    <div class="centered">
+                        <h4 style="color:white; font-size:30px;">HEALTH</h4>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}
