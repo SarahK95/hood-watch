@@ -1,3 +1,11 @@
 #logs{
-    background: url("https://cdn.pixabay.com/photo/2016/11/29/01/51/wood-1866654_960_720.jpg");
+    background: url("");
+}
+
+footer{
+    margin-top: 40px;
+}
+
+.col{
+    height: 90vh;
 }

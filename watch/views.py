@@ -40,28 +40,28 @@ def search_results(request):
 def post(request):
     current_user = request.user
     profile = Profile.objects.get(username = current_user)
-    posts = Post.objects.filter(neighbourhood =profile.neighbourhood)
+    posts = Post.objects.filter(hood =profile.neighbourhood)
     return render(request, 'post.html', {'posts':posts})
     
 @login_required(login_url='/accounts/login')
 def police(request):
     current_user = request.user
     profile = Profile.objects.get(username= current_user)
-    polices = Police.objects.filter(neighbourhood =profile.neighbourhood) 
+    polices = Police.objects.filter(hood =profile.neighbourhood) 
     return render (request, 'police.html', {'polices':polices}) 
 
 @login_required(login_url='/accounts/login')
 def health(request):
     current_user = request.user
     profile = Profile.objects.get(username = current_user)
-    healthdepts =Health.objects.filter(neighbourhood=profile.neighbourhood)  
+    healthdepts =Health.objects.filter(hood=profile.neighbourhood)  
     return render(request, 'health,html', {'healthdepts': healthdepts})
     
 @login_required(login_url='/accounts/login/')
 def businesses(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    businesses = Business.objects.filter(neighbourhood=profile.neighbourhood)
+    businesses = Business.objects.filter(hood=profile.neighbourhood)
     return render(request,'business.html',{"businesses":businesses})  
 
 @login_required(login_url='/accounts/login/')
