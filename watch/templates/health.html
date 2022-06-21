@@ -7,7 +7,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 top-div" style="margin-top:40px;">
+    <div class="col-md-12 top-div" style="margin-top:40px;"></div>
       <h1>HEALTH</h1>
 
     </div>
@@ -16,7 +16,7 @@
 <div class="row">
 
   {% for health in healths %}
-  <div class="col-md-6">
+  <div class="col-md-4">
   <div class="card" style="width: 25rem;margin-top:10px;" >
   <div class="card-body">
       <h3 class="card-title" data-toggle="modal" data-target="#{{health.id}}">{{health.health_name}}</h3>
@@ -26,9 +26,9 @@
 
 <!-- Modal -->
 <div class="modal fade" id="{{health.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content text-center">
-      <div class="modal-header text-center">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
         <h3 class="text-center">{{health.health_name}}</h3>
       </div>
       <div class="modal-body">
@@ -39,11 +39,11 @@
         <p><span class="bold">Address:</span> {{health.addy}}</p>
         <p><span class="bold">Email:</span> {{health.emails}}</p>
       </div>
-      <div class="modal-footer" style="display:block;">
+      <div class="modal-footer">
         {% for healthservice in healthdepts.all %}
             <button class="btn btn-primary">{{ healthservice }}</button>
         {% endfor%}
-
+         
     </div>
 
     </div>
@@ -53,6 +53,7 @@
 </div>
 
 </div>
+</body>
 
 <style>
 .bold{
