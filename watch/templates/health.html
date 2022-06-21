@@ -7,15 +7,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 top-div" style="margin-top:40px;"></div>
+    <div class="col-md-12 top-div" style="margin-top:40px;">
       <h1>HEALTH</h1>
   </div>
+</div>
   
 
 <div class="row">
 
   {% for health in healths %}
-  <div class="col-md-4">
+  <div class="col-md-6">
    <div class="card" style="width: 25rem;margin-top:10px;" >
   <div class="card-body">
     <button type="button" class="btn  btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{health.id}}">{{health.health_name}}</button>
@@ -25,7 +26,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="{{health.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModal{{health.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,7 +34,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
       </div>
       <div class="modal-body">
-        <img class="card-img-top" src="{{health.logo.url}}" height=200 width=100 >
+        <img class="card-img-top" src="{{health.logos.url}}" height=200 width=100 >
         <h4 class="text-center">Contacts</h4>
         <p><span class="bold">Tel:</span> {{health.contacts}}</p>
         <p><span class="bold">Address:</span> {{health.addy}}</p>
