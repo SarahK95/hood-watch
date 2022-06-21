@@ -39,7 +39,7 @@ If user has no account, they click on `sign up` | User signs up | User is redire
 1. On your terminal,Create database gallery using the command below.
 
 
-       CREATE DATABASE instagram;
+       CREATE DATABASE db-name
 2. Migrate the database using the command below
 
 
