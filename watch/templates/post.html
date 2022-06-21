@@ -24,10 +24,10 @@
     <a href="/view/post/{{pst.id}}" style="color:black;text-decoration:none;margin:auto;">
       <h5 class="card-title">{{pst.title}}</h5>
     </a>
-    <a href="/user/{{pst.username}}" style="color:black;text-decoration:none;margin:auto;">
+    <a href="/user/{{pst.username}}" style="color:black;text-decoration:none;margin:auto;font-weight:bold;">
       <h6 class="card-subtitle mb-2 text-muted">{{pst.username}}</h6>
     </a>
-    <p class="card-text">{{pst.post|truncatechars:150 | safe}}</p>
+    <p class="card-text" style="font-weight:bold;">{{pst.post|truncatechars:150 | safe}}</p>
     
   </div>
 </div>
