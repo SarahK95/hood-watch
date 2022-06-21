@@ -18,7 +18,7 @@
   <p class="card-text" style="font-size:20px;color:white;font-weight:bold;">{{profile.bio |safe}}</p>
   <p class="card-text" style="font-size:18px;color:white;font-weight:bold;">Email: {{profile.email}}</p>
 
-  <a class="nav-link" href="{% url 'update-profile' %}">Edit Profile</a>
+  <a class="nav-link" href="{% url 'update-profile' %}">EDIT PROFILE</a>
 
 </div>
 
@@ -31,6 +31,9 @@
 
   body{
     background: url('https://cdn.pixabay.com/photo/2012/12/09/00/16/abstract-69124_960_720.jpg')
+  }
+  .nav-link{
+    color:white;
   }
 </style>
 
